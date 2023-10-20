@@ -38,6 +38,7 @@ public:
 	bool operator==(Visitor& other);
 };
 
+// Operator ==
 bool Visitor::operator==(Visitor& other) {
 	if (name == other.name && surname == other.surname && pasport_data == other.pasport_data) {
 		if (time_input == other.time_input && time_output == other.time_output) {
@@ -51,7 +52,7 @@ void Visitor::setTimeOutput(string tm) {
 	this->time_output = timeMark(tm);
 }
 
-
+// Return Current Date and Time
 string Visitor::currentDateTime() {
 	time_t now = time(0);
 	struct tm tstruct;

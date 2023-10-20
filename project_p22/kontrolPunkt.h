@@ -2,7 +2,6 @@
 #include<iostream>
 #include "Visitor.h"
 #include <stdio.h>
-#include <time.h>
 #include <fstream>
 
 #pragma warning(disable : 4996)
@@ -28,11 +27,13 @@ public:
 };
 int ControlPunkt::now_count = 0;
 
+// Visitor entered in Control punkt
 void ControlPunkt::registration_input(Visitor human) {
 	visitors.push_back(human);
 	now_count++;
 }
 
+// Visitor human exit from Control punkt
 void ControlPunkt::registration_exit(Visitor human) {
 	for (int i = 0; i < size(visitors); ++i) {
 		if (visitors[i] == human) {
@@ -42,7 +43,7 @@ void ControlPunkt::registration_exit(Visitor human) {
 	now_count--;
 }
 
-
+// Print data about all visitors
 void ControlPunkt::print_visitors() {
 	for (auto user : visitors) {
 		cout << "Name: " << user.getName() << endl;
@@ -54,7 +55,7 @@ void ControlPunkt::print_visitors() {
 	}
 }
 
-
+// Write in file data from vector visitors
 void ControlPunkt::write_visitors_in_file() {
 	ofstream wr("users.txt");
 	for (auto user : visitors) {
@@ -66,7 +67,7 @@ void ControlPunkt::write_visitors_in_file() {
 	}
 }
 
-
+// Return Current Date and Time
 string ControlPunkt::currentDateTime() {
 	time_t now = time(0);
 	struct tm tstruct;

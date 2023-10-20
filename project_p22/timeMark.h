@@ -25,11 +25,12 @@ public:
 };
 
 
-//2023-10-19.19:44:40
+// Transform bad date and time in good date and time
 string timeMark::getNormalTime() {
 	return year + "." + month + "." + day + "  " + hour + ":" + minuts;
 }
 
+// Operator ==
 bool timeMark::operator==(timeMark& other) {
 	if (year == other.year && month == other.month && day == other.day && hour == other.hour && minuts == other.minuts) {
 		return true;
